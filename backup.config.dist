@@ -1,0 +1,6 @@
+[login]
+user=your-database-username
+pass=your-database-password
+host=your-database-host
+[db]
+database=your-database-name
