@@ -38,6 +38,7 @@ if not os.path.exists(dayfolder):
 # create a mysqldump for today
 print "creating sql dump      : %s" % (dayfile)
 os.popen("mysqldump -u %s -p%s -h %s -e --opt -c %s > %s" % (username, password, hostname, database, dayfile))
+os.popen("gzip -f %s" % (dayfile))
 
 # loop over folders and create archives
 for folder in config._sections['folders']:
