@@ -13,15 +13,15 @@ config.read("./backup.config")
 username = config.get('login', 'user')
 password = config.get('login', 'pass')
 hostname = config.get('login', 'host')
-database = config.get('db','database')
+database = config.get('db', 'database')
 
 # human readable filenames for each weekday
-days = {0:'0-monday', 1:'1-tuesday', 2:'2-wednesday', 3:'3-thursday', 4:'4-friday', 5:'5-saturday', 6:'6-sunday'}
+days = {0: '0-monday', 1: '1-tuesday', 2: '2-wednesday', 3: '3-thursday', 4: '4-friday', 5: '5-saturday', 6: '6-sunday'}
 
 # get date
 today = datetime.datetime.today()
 
-# get day of week, week, 
+# get day of week, week
 dayofweek = today.weekday()
 week = today.isocalendar()[1]
 
@@ -44,7 +44,7 @@ os.popen("gzip -f %s" % (dayfile))
 for folder in config._sections['folders']:
     if not folder == '__name__':
         archive = "%s/%s.tar.gz" % (dayfolder, folder)
-        content = config.get('folders',folder)
+        content = config.get('folders', folder)
         print "creating archive       : %s " % (archive)
         os.popen("tar -czf %s %s" % (archive, content))
 
